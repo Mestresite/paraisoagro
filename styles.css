@@ -8,8 +8,10 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: #f4f4f4;
 }
 
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -31,35 +33,36 @@ header {
 }
 
 .hero {
-  position: relative; /* Torna possível posicionar o overlay */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 80vh;
-  background: url('img5.jpg') no-repeat center center/cover;
+  background: url('images/img5.jpg') no-repeat center center/cover;
   text-align: center;
   color: white;
   padding: 0 1rem;
-  overflow: hidden; /* Garante que o overlay fique contido na seção */
+  overflow: hidden;
 }
 
 .hero::before {
-  content: ""; /* Cria o overlay */
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Escurece a imagem com transparência */
-  z-index: 1; /* Coloca o overlay abaixo do conteúdo */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .hero-content {
-  position: relative; /* Garante que o texto fique acima do overlay */
-  z-index: 2; /* Coloca o texto acima do overlay */
-  max-width: 800px; /* Limita a largura do texto */
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
   text-align: center;
 }
+
 .section {
   padding: 2rem;
   text-align: center;
@@ -114,35 +117,17 @@ header {
   width: 100%;
 }
 
-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 1rem;
-}
-
-button.prev {
-  left: 0;
-}
-
-button.next {
-  right: 0;
-}
-
 footer {
   text-align: center;
   padding: 1rem;
   background-color: #333;
   color: white;
 }
+
 /* Botão do WhatsApp */
 .btn {
   display: inline-block;
-  background-color: #25d366; /* Verde do WhatsApp */
+  background-color: #25d366;
   color: white;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
@@ -152,7 +137,7 @@ footer {
 }
 
 .btn:hover {
-  background-color: #1ebe5d; /* Cor mais escura ao passar o mouse */
+  background-color: #1ebe5d;
 }
 
 /* Overlay na seção About */
@@ -174,7 +159,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Escurece a imagem */
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,7 +171,7 @@ footer {
 }
 
 .about .image-wrapper:hover .overlay {
-  opacity: 1; /* Mostra o overlay ao passar o mouse */
+  opacity: 1;
 }
 
 .about .overlay h2 {
@@ -196,4 +181,117 @@ footer {
 
 .about .overlay p {
   font-size: 1.2rem;
+}
+
+/* Página de Produtos */
+main {
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.product-category {
+  margin-bottom: 3rem;
+}
+
+.product-category h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #4caf50;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: calc(33.333% - 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.product-card p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.product-card .size-select,
+.product-card .quantity-input {
+  width: 80%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.product-card .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .product-card {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    width: 100%;
+  }
+}
+
+/* Estilo do botão WhatsApp */
+.whatsapp-button {
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem; /* Espaçamento acima do botão */
+  width: 100%; /* Faz o botão ocupar toda a largura do card */
+  text-align: center;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5d;
 }
