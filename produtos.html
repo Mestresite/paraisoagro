@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Produtos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">PetShop & Agro</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </header>
+
+  <!-- Seção Produtos -->
+  <main>
+    <section id="products">
+      <h1>Nossos Produtos</h1>
+
+      <!-- Seção Rações -->
+      <div class="product-category">
+        <h2>Rações</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="images/img1.jpg" alt="Ração 1">
+            <h3>Ração Premium</h3>
+            <p>Pacote disponível em:</p>
+            <select class="size-select">
+              <option value="10kg">10kg</option>
+              <option value="15kg">15kg</option>
+              <option value="20kg">20kg</option>
+            </select>
+            <p>Quantidade:</p>
+            <input type="number" min="1" value="1" class="quantity-input">
+            <p class="price">R$ 150,00</p>
+            <button class="whatsapp-button" onclick="comprarWhatsApp('Ração Premium', this)">Comprar via WhatsApp</button>
+          </div>
+          <div class="product-card">
+            <img src="images/img2.jpg" alt="Ração 2">
+            <h3>Ração para Gatos</h3>
+            <p>Pacote disponível em:</p>
+            <select class="size-select">
+              <option value="2kg">2kg</option>
+              <option value="5kg">5kg</option>
+              <option value="10kg">10kg</option>
+            </select>
+            <p>Quantidade:</p>
+            <input type="number" min="1" value="1" class="quantity-input">
+            <p class="price">R$ 80,00</p>
+            <button class="whatsapp-button" onclick="comprarWhatsApp('Raçã para Gatos', this)">Comprar via WhatsApp</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção Brinquedos para Pets -->
+      <div class="product-category">
+        <h2>Brinquedos para Pets</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="images/img1.jpg" alt="Brinquedo 1">
+            <h3>Bola de Borracha</h3>
+            <p>Quantidade:</p>
+            <input type="number" min="1" value="1" class="quantity-input">
+            <p class="price">R$ 20,00</p>
+            <button class="whatsapp-button" onclick="comprarWhatsApp('Bola de Borracha', this)">Comprar via WhatsApp</button>
+          </div>
+          <div class="product-card">
+            <img src="images/img2.jpg" alt="Brinquedo 2">
+            <h3>Osso de Nylon</h3>
+            <p>Quantidade:</p>
+            <input type="number" min="1" value="1" class="quantity-input">
+            <p class="price">R$ 30,00</p>
+            <button class="whatsapp-button" onclick="comprarWhatsApp('Osso de Nylon', this)">Comprar via WhatsApp</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção Casinhas -->
+      <div class="product-category">
+        <h2>Casinhas</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="images/img1.jpg" alt="Casinha 1">
+            <h3>Casinha de Madeira</h3>
+            <p>Quantidade:</p>
+            <input type="number" min="1" value="1" class="quantity-input">
+            <p class="price">R$ 250,00</p>
+            <button class="whatsapp-button" onclick="comprarWhatsApp('Casinha de Madeira', this)">Comprar via WhatsApp</button>
+          </div>
+          <div class="product-card">
+            <img src="images/img2.jpg" alt="Casinha 2">
+            <h3>Casinha de Plástico</h3>
+            <p>Quantidade:</p>
+            <input type="number" min="1" value="1" class="quantity-input">
+            <p class="price">R$ 180,00</p>
+            <button class="whatsapp-button" onclick="comprarWhatsApp('Casinha de Plástico', this)">Comprar via WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 PetShop & Agro. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script para redirecionar ao WhatsApp -->
+  <script>
+    function comprarWhatsApp(nomeProduto, botao) {
+      // Obtém o elemento pai (product-card) do botão clicado
+      const card = botao.closest('.product-card');
+
+      // Obtém a quantidade e o tamanho (se existir)
+      const quantidade = card.querySelector('.quantity-input').value;
+      const tamanho = card.querySelector('.size-select') ? card.querySelector('.size-select').value : null;
+
+      // Monta a mensagem para o WhatsApp
+      let mensagem = `Olá, gostaria de comprar o produto: ${nomeProduto}\n`;
+      if (tamanho) {
+        mensagem += `Tamanho: ${tamanho}\n`;
+      }
+      mensagem += `Quantidade: ${quantidade}\n`;
+      mensagem += `Poderia me ajudar?`;
+
+      // Codifica a mensagem para uso na URL
+      const mensagemCodificada = encodeURIComponent(mensagem);
+
+      // Número de telefone (substitua pelo seu número)
+      const telefone = '5511999999999'; // Exemplo: 11 99999-9999
+
+      // Cria o link do WhatsApp
+      const linkWhatsApp = `https://wa.me/${telefone}?text=${mensagemCodificada}`;
+
+      // Redireciona para o WhatsApp
+      window.open(linkWhatsApp, '_blank');
+    }
+  </script>
+
+</body>
+</html>
