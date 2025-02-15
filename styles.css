@@ -32,12 +32,13 @@ header {
   font-weight: bold;
 }
 
+/* Hero - Ajuste do tamanho */
 .hero {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 50vh; /* Reduzi para 50% da altura da tela */
   background: url('img5.jpg') no-repeat center center/cover;
   text-align: center;
   color: white;
@@ -59,7 +60,7 @@ header {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 400px;
   text-align: center;
 }
 
@@ -70,7 +71,7 @@ header {
 
 .section img {
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
   margin-bottom: 1rem;
 }
 
@@ -81,6 +82,7 @@ header {
   gap: 1rem;
 }
 
+/* Estilização dos Cards */
 .card {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -96,6 +98,7 @@ header {
   border-radius: 5px;
 }
 
+/* Slider */
 .slider {
   position: relative;
   overflow: hidden;
@@ -117,6 +120,7 @@ header {
   width: 100%;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -203,19 +207,22 @@ h1 {
   color: #4caf50;
 }
 
+/* Grid de Produtos */
 .product-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
 }
 
+/* Cartão de Produto */
 .product-card {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: calc(33.333% - 2rem);
+  width: calc(25% - 2rem); /* Agora ocupa 25% da tela para melhor espaçamento */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -265,15 +272,29 @@ h1 {
 }
 
 /* Responsividade */
+@media (max-width: 1024px) {
+  .product-card {
+    width: calc(33.333% - 1.5rem);
+  }
+}
+
 @media (max-width: 768px) {
   .product-card {
     width: calc(50% - 1rem);
+  }
+  
+  .hero {
+    height: 30vh;
   }
 }
 
 @media (max-width: 480px) {
   .product-card {
     width: 100%;
+  }
+
+  .hero {
+    height: 50vh;
   }
 }
 
@@ -287,11 +308,38 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 1rem; /* Espaçamento acima do botão */
-  width: 100%; /* Faz o botão ocupar toda a largura do card */
+  margin-top: 1rem; 
+  width: 100%; 
   text-align: center;
 }
 
 .whatsapp-button:hover {
   background-color: #1ebe5d;
+}
+/* Estilo da Logo */
+.logo {
+  font-family: 'Arial Black', sans-serif; /* Fonte forte e moderna */
+  font-size: 2rem; /* Tamanho maior para destaque */
+  text-transform: uppercase; /* Letras maiúsculas como a Nike */
+  letter-spacing: 2px; /* Espaçamento entre letras */
+  font-weight: bold;
+  color: #000; /* Preto clássico */
+  text-decoration: none;
+  transition: transform 0.3s ease, letter-spacing 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efeito ao passar o mouse */
+.logo:hover {
+  transform: scale(1.1); /* Aumenta ligeiramente ao passar o mouse */
+  letter-spacing: 3px; /* Dá um efeito dinâmico */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem; /* Reduz um pouco para telas menores */
+  }
 }
